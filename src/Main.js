@@ -1,28 +1,43 @@
 import React, { Component } from 'react'
 import HornedBeasts from "./HornedBeasts.js";
+import hornedData from "./data.json";
 
 
-export class Main extends Component {
+
+ class Main extends Component {
+    
+    
     render() {
-        let HornedBeastList = [
-            {
+        console.log(this.props)
 
-                title: 'UniWhal',
-                image: 'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg',
-                description: 'A unicorn and a narwhal nuzzling their horns'
+        let likes = [];
 
-            },
-
-            {
-                title: 'Rhino Family',
-                image: 'https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80',
-                description: 'Mother (or father) rhino with two babies'
-            },
-        ]
+        let likeIncreas = (likeNumber) => {
+            return likeNumber +1;
+        };
         return (
             <div>
-                < HornedBeasts title={HornedBeastList[0].title} img={HornedBeastList[0].image} description={HornedBeastList[0].description} />
-                < HornedBeasts title={HornedBeastList[1].title} img={HornedBeastList[1].image} description={HornedBeastList[1].description} />
+                < HornedBeasts title={hornedData[0].title} img={hornedData[0].image_url} description={hornedData[0].description} likeNumber={0} raisLikes={likeIncreas} />
+                < HornedBeasts title={hornedData[1].title} img={hornedData[1].image_url} description={hornedData[1].description} likeNumber={0} raisLikes={likeIncreas} />
+                < HornedBeasts title={hornedData[2].title} img={hornedData[2].image_url} description={hornedData[2].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[3].title} img={hornedData[3].image_url} description={hornedData[3].description} likeNumber={0} raisLikes={likeIncreas} />
+                < HornedBeasts title={hornedData[4].title} img={hornedData[4].image_url} description={hornedData[4].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[5].title} img={hornedData[5].image_url} description={hornedData[5].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[6].title} img={hornedData[6].image_url} description={hornedData[6].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[7].title} img={hornedData[7].image_url} description={hornedData[7].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[8].title} img={hornedData[8].image_url} description={hornedData[8].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[9].title} img={hornedData[9].image_url} description={hornedData[9].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[10].title} img={hornedData[1].image_url} description={hornedData[10].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[11].title} img={hornedData[11].image_url} description={hornedData[11].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[12].title} img={hornedData[12].image_url} description={hornedData[12].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[13].title} img={hornedData[13].image_url} description={hornedData[13].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[14].title} img={hornedData[14].image_url} description={hornedData[14].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[15].title} img={hornedData[15].image_url} description={hornedData[15].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[16].title} img={hornedData[16].image_url} description={hornedData[16].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[17].title} img={hornedData[17].image_url} description={hornedData[17].description} likeNumber={0} raisLikes={likeIncreas} />
+                < HornedBeasts title={hornedData[18].title} img={hornedData[18].image_url} description={hornedData[18].description} likeNumber={0} raisLikes={likeIncreas}/>
+                < HornedBeasts title={hornedData[19].title} img={hornedData[19].image_url} description={hornedData[19].description} likeNumber={0} raisLikes={likeIncreas}/>
+                          
             </div>
         )
     }
