@@ -16,11 +16,20 @@ import SelectedBeast from "./SelectedBeast.js";
            
     }
     
+    click=()=>{
+        this.props.modal({
+            title :this.props.title,
+            image_url:this.props.img,
+            description:this.props.description,
+
+        })
+    }
             
     render() {
         console.log(this.props)
         console.log(this.state)
         return (
+          
             <Col>
             <Card style={{ width: '18rem' }} bg={'dark'} text={'white'}>
                 <Card.Img alt={this.props.description}variant="top" src={this.props.img} width="250" height="250" />
@@ -32,11 +41,12 @@ import SelectedBeast from "./SelectedBeast.js";
             <Button onClick={this.favoriteBeast} variant="primary">Votes ♥️</Button> 
             <span> {this.state.likeNumber} </span> <br></br>
             {/* <Button onClick={this.showModal} variant="primary">Alert Me</Button> */}
-            <Button onClick={()=>this.setState({ show: true })} variant="primary">Alert Me</Button>
+            <Button onClick={this.click} variant="primary">Alert Me</Button>
 
             </Card.Body>
           </Card>
           </Col>
+          
 
             // <div>
             //    <h1>{this.props.title}</h1>
