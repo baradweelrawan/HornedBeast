@@ -3,30 +3,30 @@ import HornedBeasts from "./HornedBeasts.js";
 import hornedData from "./data.json";
 
 import { Row } from 'react-bootstrap';
-// import SelectedBeast from "./SelectedBeast";
+import SelectedBeast from "./SelectedBeast";
 
 
  class Main extends Component {
-    
+
+     filteredHornes=()=>{hornedData.filter( hornedData =>  hornedData.horns )};
     
     render() {
         console.log(this.props)
-
+        // console.log(filteredHornes);
        
 
         let likeIncreas = (likeNumber) => {
             return likeNumber +1;
         };
 
-        let alertsMesg=(alert)=> {
-            return alert;
-        }
+        
         return (
+            
             <Row>
               { 
                hornedData.map((beast) => { 
                   return <HornedBeasts title={beast.title} img={beast.image_url} description={beast.description}
-                  likeNumber={0} raisLikes={likeIncreas}  alertMsg={alertsMesg}/>
+                  likeNumber={0} raisLikes={likeIncreas}  modal={this.props.selectedBeast} horns={this.props. filteredHornes}/>
 })
 }
                 {/* < HornedBeasts title={hornedData[0].title} img={hornedData[0].image_url} description={hornedData[0].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={this.showModal} />
@@ -51,6 +51,8 @@ import { Row } from 'react-bootstrap';
                 < HornedBeasts title={hornedData[19].title} img={hornedData[19].image_url} description={hornedData[19].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg}/> */}
                           
             </Row>
+            
+           
         )
     }
 }
