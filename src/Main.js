@@ -6,29 +6,44 @@ import { Row } from 'react-bootstrap';
 import SelectedBeast from "./SelectedBeast";
 
 
- class Main extends Component {
+class Main extends Component {
 
-     filteredHornes=()=>{hornedData.filter( hornedData =>  hornedData.horns )};
-    
+    // filteredHornes = () => { hornedData.filter(hornedData => hornedData.horns) };
+    constructor(props) {
+        super(props);
+        this.state = {
+            hideList: false,
+        }
+    }
+    handelSelect = () => {
+        this.state = ({
+            hideList: true
+        })
+    }
+
+
     render() {
         console.log(this.props)
         // console.log(filteredHornes);
-       
+
 
         let likeIncreas = (likeNumber) => {
-            return likeNumber +1;
+            return likeNumber + 1;
         };
 
-        
+
         return (
-            
+
             <Row>
-              { 
-               hornedData.map((beast) => { 
-                  return <HornedBeasts title={beast.title} img={beast.image_url} description={beast.description}
-                  likeNumber={0} raisLikes={likeIncreas}  modal={this.props.selectedBeast} horns={this.props. filteredHornes}/>
-})
-}
+                {
+                    hornedData.map((beast) => {
+                        return (Number(this.state.horns) === beast.horns &&
+                            <HornedBeasts title={beast.title} img={beast.image_url} description={beast.description}
+                                likeNumber={0} raisLikes={likeIncreas} modal={this.props.selectedBeast} />) || (Number(this.state.horns) === 0 &&
+                                    <HornedBeasts title={beast.title} img={beast.image_url} description={beast.description}
+                                        likeNumber={0} raisLikes={likeIncreas} modal={this.props.selectedBeast} />)
+                    })
+                }
                 {/* < HornedBeasts title={hornedData[0].title} img={hornedData[0].image_url} description={hornedData[0].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={this.showModal} />
                 < HornedBeasts title={hornedData[1].title} img={hornedData[1].image_url} description={hornedData[1].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg} />
                 < HornedBeasts title={hornedData[2].title} img={hornedData[2].image_url} description={hornedData[2].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg}/>
@@ -49,10 +64,10 @@ import SelectedBeast from "./SelectedBeast";
                 < HornedBeasts title={hornedData[17].title} img={hornedData[17].image_url} description={hornedData[17].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg}/>
                 < HornedBeasts title={hornedData[18].title} img={hornedData[18].image_url} description={hornedData[18].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg}/>
                 < HornedBeasts title={hornedData[19].title} img={hornedData[19].image_url} description={hornedData[19].description} likeNumber={0} raisLikes={likeIncreas} alertMsg={alertsMesg}/> */}
-                          
+
             </Row>
-            
-           
+
+
         )
     }
 }
